@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getReviews } from "../api";
+import ReviewCard from "./ReviewCard";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -13,9 +14,9 @@ const Reviews = () => {
   }, []);
 
   return (
-    <section>
+    <section className="reviews-container">
       {reviews.map((review) => {
-        return <p key={review.review_id}>{review.title}</p>;
+        return <ReviewCard key={review.review_id} review={review} />;
       })}
     </section>
   );

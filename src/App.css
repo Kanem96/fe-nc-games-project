@@ -8,6 +8,7 @@ body {
   text-align: center;
   font-family: sans-serif;
   width: 100%;
+  background-color: #f1faee;
 }
 
 .app {
@@ -28,5 +29,35 @@ body {
 .page-banner {
   width: 100%;
   max-width: 1470px;
-  margin: 20px 0;
+  margin: 20px 0 30px 0;
+  opacity: 80%;
+}
+
+.reviews-container {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-card {
+  margin: auto auto;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #457b9d;
+  padding: 20px;
+  width: 60%;
+  height: auto;
+}
+
+.review-card-img {
+  margin-right: 20px;
+  width: 240px;
+  max-height: 150px;
+}
+
+.review-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
 }
