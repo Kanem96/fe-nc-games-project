@@ -10,3 +10,9 @@ export const getReviews = async () => {
   const { data } = await gamesAPI.get(path);
   return data.reviews;
 };
+
+export const getReviewById = async (reviewId) => {
+  const { data } = await gamesAPI.get(`/reviews/${reviewId}`);
+
+  return data.review[0];
+};

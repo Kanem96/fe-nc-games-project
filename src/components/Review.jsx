@@ -1,9 +1,24 @@
-import React from 'react'
-
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getReviewById } from "../api";
 const Review = () => {
-  return (
-    <div>Review</div>
-  )
-}
+  const [review, setReview] = useState({});
+  const { id } = useParams();
 
-export default Review
+  useEffect(() => {
+    const fetchReviewById = async () => {
+      const reviewInfo = await getReviewById(id);
+      setReview(reviewInfo);
+    };
+    fetchReviewById();
+  }, [id]);
+
+  return (
+    <section>
+      <p>Review</p>
+      <p>{review.title}</p>
+    </section>
+  );
+};
+
+export default Review;
