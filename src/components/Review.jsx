@@ -14,20 +14,29 @@ const Review = () => {
     fetchReviewById();
   }, [id]);
 
+  const date = new Date(review.created_at);
+  const formattedDate = date.toLocaleString("en-gb", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  });
+  
   return (
     <section className="review-container">
       <h1 className="review-title">{review.title}</h1>
       <img
         src={review.review_img_url}
-        alr={review.title}  
+        alr={review.title}
         className="review-img"
       ></img>
       <h3 className="review-creator">{review.designer}</h3>
-      <p className="creation-time">{review.created_at}</p>
-        <button className="vote-container">
-          <img src={likeButton} alt="like button" className="thumb-icon" />
-          <p>{review.votes}</p>
-        </button>
+      <p className="creation-time">{formattedDate}</p>
+      <button className="vote-container">
+        <img src={likeButton} alt="like button" className="thumb-icon" />
+        <p>{review.votes}</p>
+      </button>
       <p className="review-body">{review.review_body}</p>
       <div className="comments-container">
         <p>{review.comment_count} Comments</p>
