@@ -26,6 +26,9 @@ body {
   color: white;
 }
 
+.header-link {
+  text-decoration: none;
+}
 .page-banner {
   width: 100%;
   max-width: 1470px;
@@ -47,6 +50,15 @@ body {
   padding: 20px;
   width: 60%;
   height: auto;
+  text-decoration: none;
+}
+
+.review-card:hover {
+  background-color: #d9e2d4;
+}
+
+.review-card:focus {
+  background-color: #d9e2d4;
 }
 
 .review-card-img {
@@ -60,6 +72,15 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: left;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 700px) {
