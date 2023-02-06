@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Reviews from "./components/Reviews";
@@ -9,7 +9,9 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Header />
-        <Reviews />
+        <Routes>
+          <Route path="/reviews" element={<Reviews />}></Route>
+        </Routes>
       </div>
     </BrowserRouter>
   );
