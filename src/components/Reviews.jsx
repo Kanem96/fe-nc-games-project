@@ -4,14 +4,20 @@ import ReviewCard from "./ReviewCard";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchReviews = async () => {
       const reviewList = await getReviews();
       setReviews(reviewList);
+      setIsLoading(false);
     };
     fetchReviews();
   }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <section className="reviews-container">
