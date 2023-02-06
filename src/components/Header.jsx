@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import pageBanner from "../assets/images/pageBanner.png";
 
-const Header = () =>  {
+const Header = () => {
   return (
-    <div>NC Games</div>
-  )
-}
+    <div>
+      <h1 className="header">NC Games</h1>
+      <img src={pageBanner} alt="retro" className="page-banner" />
+    </div>
+  );
+};
 
-export default Header
+export default Header;

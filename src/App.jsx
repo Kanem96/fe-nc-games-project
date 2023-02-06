@@ -5,7 +5,7 @@ import Reviews from "./components/Reviews";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <Reviews />
     </div>
