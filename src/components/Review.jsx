@@ -5,18 +5,18 @@ import likeButton from "../assets/icons/like.png";
 const Review = () => {
   const [review, setReview] = useState({});
   const { id } = useParams();
-const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchReviewById = async () => {
       const reviewInfo = await getReviewById(id);
       setReview(reviewInfo);
-      setIsLoading(false)
     };
     fetchReviewById();
+    setIsLoading(false);
   }, [id]);
 
-  if(isLoading) return <p>Is Loading...</p>
+  if (isLoading) return <p>Is Loading...</p>;
   const date = new Date(review.created_at);
   const formattedDate = date.toLocaleString("en-gb", {
     year: "numeric",
@@ -43,6 +43,7 @@ const [isLoading, setIsLoading] = useState(true)
       <p className="review-body">{review.review_body}</p>
       <div className="comments-container">
         <p>{review.comment_count} Comments</p>
+        {}
       </div>
     </section>
   );
