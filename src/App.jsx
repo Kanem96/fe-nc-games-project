@@ -1,15 +1,18 @@
-import { useState } from 'react'
-
-import './App.css'
+import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Reviews from "./components/Reviews";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-     
-    </div>
-  )
+    <BrowserRouter>
+      <div className="app">
+        <Header />
+        <Reviews />
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
