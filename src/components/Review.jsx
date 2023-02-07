@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getReviewById, postNewVote } from "../api";
+import { getReviewById, patchNewVote } from "../api";
 import likeButton from "../assets/icons/like.png";
 const Review = () => {
   const [review, setReview] = useState({});
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     const fetchReviewById = async () => {
@@ -30,12 +31,16 @@ const Review = () => {
   });
 
   const updateVoteCount = () => {
-    const newVote = { inc_votes: 1 };
+    const newVote = !isClicked ? { inc_votes: 1 } : { inc_votes: -1 };
     patchNewVote(id, newVote);
   };
 
-  const handleClick = () => {
-    setVoteCount((currentVoteCount) => currentVoteCount + 1);
+  const handleClick = (event) => {
+    event.preventDefault();
+    setIsClicked(!isClicked);
+    setVoteCount((currentVoteCount) => {
+      return !isClicked ? currentVoteCount + 1 : currentVoteCount - 1;
+    });
     updateVoteCount();
   };
 
