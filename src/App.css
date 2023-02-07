@@ -19,7 +19,7 @@ body {
 }
 
 .header {
-  background-color: #1D3557;
+  background-color: #1d3557;
   margin-top: 0;
   width: 100%;
   box-sizing: border-box;
@@ -45,11 +45,6 @@ body {
   max-width: 1470px;
   margin: 20px 0 30px 0;
   opacity: 80%;
-}
-
-.disable {
-  display: none;
-  /* display: block; */
 }
 
 .reviews-container {
@@ -120,12 +115,12 @@ body {
   font-size: 1.5rem;
 }
 
-.review-title{
+.review-title {
   text-align: left;
 }
 
 .review-creator {
-margin-bottom: 2px;
+  margin-bottom: 2px;
 }
 
 .creation-time {
@@ -154,9 +149,9 @@ margin-bottom: 2px;
   margin: 2px;
   width: 48px;
   text-decoration: none;
-  background-color: #E63946;
+  background-color: #e63946;
   color: white;
-  border: 1px solid #f1faee;;
+  border: 1px solid #f1faee;
   border-radius: 6px;
 }
 
@@ -164,6 +159,7 @@ margin-bottom: 2px;
   margin: 0;
   margin-top: 1px;
   margin-right: 2px;
+  font-weight: bold;;
 }
 
 .vote-container:hover {
