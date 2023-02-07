@@ -4,9 +4,9 @@ const gamesAPI = axios.create({
   baseURL: "https://kanes-games.onrender.com/api",
 });
 
-export const getReviews = async () => {
+export const getReviews = async (category) => {
   let path = "/reviews";
-
+  if (category) path += `?category=${category}`;
   const { data } = await gamesAPI.get(path);
   return data.reviews;
 };
@@ -23,6 +23,6 @@ export const patchNewVote = async (reviewId, newVote) => {
 
 export const getCategories = async () => {
   const { data } = await gamesAPI.get("/categories");
-  
-  return data.categories
+
+  return data.categories;
 };

@@ -15,7 +15,7 @@ const Nav = () => {
 
   return <nav className="nav-bar">
     {categories.map(category => {
-        return <Link to="/reviews/:category" className="nav-link">{category.slug}</Link>
+        return <Link key={category.slug} to={`/reviews?category=${category.slug}`} className="nav-link">{category.slug}</Link>
     })}
   </nav>;
 };
