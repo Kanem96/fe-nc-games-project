@@ -31,7 +31,7 @@ const Review = () => {
 
   const updateVoteCount = () => {
     const newVote = { inc_votes: 1 };
-    postNewVote(id, newVote);
+    patchNewVote(id, newVote);
   };
 
   const handleClick = () => {
