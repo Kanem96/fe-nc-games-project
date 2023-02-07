@@ -67,7 +67,6 @@ const Review = () => {
       <p className="review-body">{review.review_body}</p>
       <div className="comments-container">
         <p>{review.comment_count} Comments</p>
-        {}
       </div>
     </section>
   );
