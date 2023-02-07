@@ -5,15 +5,18 @@ import likeButton from "../assets/icons/like.png";
 const Review = () => {
   const [review, setReview] = useState({});
   const { id } = useParams();
+const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchReviewById = async () => {
       const reviewInfo = await getReviewById(id);
       setReview(reviewInfo);
+      setIsLoading(false)
     };
     fetchReviewById();
   }, [id]);
 
+  if(isLoading) return <p>Is Loading...</p>
   const date = new Date(review.created_at);
   const formattedDate = date.toLocaleString("en-gb", {
     year: "numeric",
@@ -22,13 +25,13 @@ const Review = () => {
     hour: "numeric",
     minute: "numeric",
   });
-  
+
   return (
     <section className="review-container">
       <h1 className="review-title">{review.title}</h1>
       <img
         src={review.review_img_url}
-        alr={review.title}
+        alt={review.title}
         className="review-img"
       ></img>
       <h3 className="review-creator">{review.designer}</h3>
