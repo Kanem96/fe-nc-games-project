@@ -16,3 +16,7 @@ export const getReviewById = async (reviewId) => {
 
   return data.review[0];
 };
+
+export const postNewVote = async (reviewId, newVote) => {
+  gamesAPI.patch(`/reviews/${reviewId}`, newVote)
+}
