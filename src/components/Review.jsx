@@ -11,9 +11,9 @@ const [isLoading, setIsLoading] = useState(true)
     const fetchReviewById = async () => {
       const reviewInfo = await getReviewById(id);
       setReview(reviewInfo);
-      setIsLoading(false)
     };
     fetchReviewById();
+    setIsLoading(false)
   }, [id]);
 
   if(isLoading) return <p>Is Loading...</p>
