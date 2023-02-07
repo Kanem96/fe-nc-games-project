@@ -8,6 +8,7 @@ const Review = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
     const fetchReviewById = async () => {
@@ -32,7 +33,11 @@ const Review = () => {
 
   const updateVoteCount = () => {
     const newVote = !isClicked ? { inc_votes: 1 } : { inc_votes: -1 };
-    patchNewVote(id, newVote);
+    setErr(null);
+    patchNewVote(id, newVote).catch((err) => {
+      setVoteCount((currentVoteCount) => currentVoteCount - 1);
+      setErr("Something went wrong, please try again.");
+    });
   };
 
   const handleClick = (event) => {
@@ -54,9 +59,10 @@ const Review = () => {
       ></img>
       <h3 className="review-creator">{review.designer}</h3>
       <p className="creation-time">{formattedDate}</p>
+      {err ? <p>{err}</p> : null}
       <button className="vote-container" onClick={handleClick}>
         <img src={likeButton} alt="like button" className="thumb-icon" />
-        <p>{voteCount}</p>
+        <p className={isClicked ? "clicked" : ""}>{voteCount}</p>
       </button>
       <p className="review-body">{review.review_body}</p>
       <div className="comments-container">
