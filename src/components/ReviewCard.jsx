@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { formatDateAndTime } from "../utils";
 const ReviewCard = ({ review }) => {
   return (
     <Link to={`/reviews/${review.review_id}`} className="link">
@@ -12,7 +12,9 @@ const ReviewCard = ({ review }) => {
         ></img>
         <div className="review-card-text">
           <h3>{review.title}</h3>
-          <p>{review.review_body}</p>
+          <p>{formatDateAndTime(review.created_at)}</p>
+          <p>{review.votes} Votes</p>
+          <p>{review.comment_count} Comments</p>
         </div>
       </div>
     </Link>

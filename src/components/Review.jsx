@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById, patchNewVote } from "../api";
 import likeButton from "../assets/icons/like.png";
+import { formatDateAndTime } from "../utils";
 const Review = () => {
   const [review, setReview] = useState({});
   const { id } = useParams();
@@ -21,15 +22,6 @@ const Review = () => {
   }, [id]);
 
   if (isLoading) return <p>Is Loading...</p>;
-
-  const date = new Date(review.created_at);
-  const formattedDate = date.toLocaleString("en-gb", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  });
 
   const updateVoteCount = () => {
     const newVote = !isClicked ? { inc_votes: 1 } : { inc_votes: -1 };
@@ -58,7 +50,7 @@ const Review = () => {
         className="review-img"
       ></img>
       <h3 className="review-creator">{review.designer}</h3>
-      <p className="creation-time">{formattedDate}</p>
+      <p className="creation-time">{formatDateAndTime(review.created_at)}</p>
       {err ? <p>{err}</p> : null}
       <button className="vote-container" onClick={handleClick}>
         <img src={likeButton} alt="like button" className="thumb-icon" />
