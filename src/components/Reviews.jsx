@@ -3,12 +3,13 @@ import { getReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 import pageBanner from "../assets/images/pageBanner.png";
 import { useSearchParams } from "react-router-dom";
+import Filter from "./Filter";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryParams] = useSearchParams();
-  const category = categoryParams.get("category");
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category");
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -29,6 +30,7 @@ const Reviews = () => {
     <section className="reviews-container">
       <section className="divider"></section>
       <img src={pageBanner} alt="retro" className="page-banner" />
+      <Filter setParams={setParams} />
       {reviews.map((review) => {
         return <ReviewCard key={review.review_id} review={review} />;
       })}
