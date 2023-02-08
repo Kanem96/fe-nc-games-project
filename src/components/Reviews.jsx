@@ -9,19 +9,20 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
-  const category = searchParams.get("category");
-  const filter = searchParams.get("sort_by")
+  const query = {
+    category: searchParams.get("category") || "",
+    filterName: searchParams.get("sort_by") || "",
+    filterOrder: searchParams.get("order") || "",
+  };
 
   useEffect(() => {
     const fetchReviews = async () => {
-      const reviewList = category
-        ? await getReviews(category)
-        : await getReviews();
+      const reviewList = query ? await getReviews(query) : await getReviews();
       setReviews(reviewList);
     };
     fetchReviews();
     setIsLoading(false);
-  }, [category]);
+  }, [query.category, query.filterName, query.filterOrder]);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -31,7 +32,7 @@ const Reviews = () => {
     <section className="reviews-container">
       <section className="divider"></section>
       <img src={pageBanner} alt="retro" className="page-banner" />
-      <Filter setSearchParams={setSearchParams} />
+      <Filter setSearchParams={setSearchParams} category={query.category}/>
       {reviews.map((review) => {
         return <ReviewCard key={review.review_id} review={review} />;
       })}
