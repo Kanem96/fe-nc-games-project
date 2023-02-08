@@ -43,7 +43,7 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   background-color: #457B9D;
-  margin-top: 68px;
+  margin-top: 67px;
   top: 0;
   left: 0;
   right: 0;
@@ -75,6 +75,23 @@ background-color: #689cbc;
   max-width: 1470px;
   margin: 30px 0 30px 0;
   opacity: 80%;
+}
+
+.filter-form {
+margin-top:10px;
+}
+
+.filter-dropdown {
+  margin: 0 5px 10px;
+  background-color: #e63946;
+  color: white;
+  padding: 7px 5px;
+  border: 2px solid #457B9D;
+  border-radius: 6px;
+}
+
+.filter-dropdown:hover {
+  border: 2px solid #1d3557;
 }
 
 .reviews-container {
@@ -121,7 +138,6 @@ margin-top: 10px;
 }
 
 .review-card-text p {
-  /* padding-bottom: 0px; */
   margin-bottom: 0px;
 }
 
