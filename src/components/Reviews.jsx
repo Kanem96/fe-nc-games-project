@@ -8,8 +8,9 @@ import Filter from "./Filter";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [params, setParams] = useSearchParams();
-  const category = params.get("category");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const category = searchParams.get("category");
+  const filter = searchParams.get("sort_by")
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -30,7 +31,7 @@ const Reviews = () => {
     <section className="reviews-container">
       <section className="divider"></section>
       <img src={pageBanner} alt="retro" className="page-banner" />
-      <Filter setParams={setParams} />
+      <Filter setSearchParams={setSearchParams} />
       {reviews.map((review) => {
         return <ReviewCard key={review.review_id} review={review} />;
       })}
