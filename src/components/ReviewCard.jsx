@@ -7,7 +7,7 @@ const ReviewCard = ({ review }) => {
       <div className="review-card">
         <img
           src={review.review_img_url}
-          alr={review.title}
+          alt={review.title}
           className="review-card-img"
         ></img>
         <div className="review-card-text">
