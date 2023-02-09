@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getReviewById, patchNewVote } from "../api";
 import likeButton from "../assets/icons/like.png";
 import { formatDateAndTime } from "../utils";
+import Comments from "./Comments";
 const Review = () => {
   const [review, setReview] = useState({});
   const { id } = useParams();
@@ -59,6 +60,7 @@ const Review = () => {
       <p className="review-body">{review.review_body}</p>
       <div className="comments-container">
         <p>{review.comment_count} Comments</p>
+        <Comments reviewId={id}/>
       </div>
     </section>
   );

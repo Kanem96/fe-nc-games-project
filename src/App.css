@@ -217,3 +217,8 @@ margin-top: 10px;
 .clicked {
   color: rgb(152, 226, 251);
 }
+
+.comment {
+  color: black;
+  padding: 20px
+}
