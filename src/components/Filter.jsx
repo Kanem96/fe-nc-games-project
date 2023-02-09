@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const Filter = ({ setSearchParams, category }) => {
   const [filter, setFilter] = useState("");
   const [filterOrder, setFilterOrder] = useState("asc");
+
   useEffect(() => {
     if (filter.length > 0)
       setSearchParams(
@@ -20,7 +21,6 @@ const Filter = ({ setSearchParams, category }) => {
         onChange={(event) => setFilter(event.target.value)}
       >
         <option value="" disabled>
-          {" "}
           Select a Filter
         </option>
         <option value="created_at">Sort by Date</option>
