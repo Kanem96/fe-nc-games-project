@@ -37,12 +37,12 @@ body {
 }
 
 .nav-bar {
-  display:flex;
+  display: flex;
   position: fixed;
   width: 100%;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: #457B9D;
+  background-color: #457b9d;
   margin-top: 67px;
   top: 0;
   left: 0;
@@ -54,12 +54,12 @@ body {
   color: white;
   text-decoration: none;
   font-weight: lighter;
-  padding: 8px 6px;;
+  padding: 8px 6px;
   border-radius: 4px;
 }
 
 .nav-link:hover {
-background-color: #689cbc;
+  background-color: #689cbc;
 }
 
 .category {
@@ -78,7 +78,7 @@ background-color: #689cbc;
 }
 
 .filter-form {
-margin-top:10px;
+  margin-top: 10px;
 }
 
 .filter-dropdown {
@@ -86,7 +86,7 @@ margin-top:10px;
   background-color: #e63946;
   color: white;
   padding: 7px 5px;
-  border: 2px solid #457B9D;
+  border: 2px solid #457b9d;
   border-radius: 6px;
 }
 
@@ -134,8 +134,8 @@ margin-top:10px;
 }
 
 .review-card-text h3 {
-margin-bottom: 2px;
-margin-top: 10px;
+  margin-bottom: 2px;
+  margin-top: 10px;
 }
 
 .review-card-text p {
@@ -217,7 +217,7 @@ margin-top: 10px;
   margin: 0;
   margin-top: 1px;
   margin-right: 2px;
-  font-weight: bold;;
+  font-weight: bold;
 }
 
 .vote-container:hover {
@@ -239,12 +239,13 @@ margin-top: 10px;
   align-items: center;
   text-decoration: none;
 }
-.comments-container-header{
+.comments-container-header {
   border-bottom: 1px solid #bdd4b6;
   padding-bottom: 6px;
 }
 
 .comment-card {
+  position: relative;
   color: black;
   border-bottom: 1px solid #457b9d;
   width: 80%;
@@ -259,4 +260,16 @@ margin-top: 10px;
 
 .comment-body {
   padding: 10px 0;
+}
+
+.delete-comment-btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.delete-comment-btn img {
+  width: 27px;
 }

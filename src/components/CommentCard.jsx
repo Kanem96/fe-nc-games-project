@@ -1,5 +1,6 @@
 import React from "react";
 import likeButton from "../assets/icons/like.png";
+import deleteButton from "../assets/icons/delete.png";
 import { formatDateAndTime } from "../utils";
 
 const CommentCard = ({ comment }) => {
@@ -11,6 +12,9 @@ const CommentCard = ({ comment }) => {
       <button className="vote-container">
         <img src={likeButton} alt="like button" className="thumb-icon" />
         <p>{comment.votes}</p>
+      </button>
+      <button className="delete-comment-btn">
+        <img src={deleteButton} alt="delete button" />
       </button>
     </li>
   );
