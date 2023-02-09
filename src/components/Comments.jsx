@@ -11,14 +11,13 @@ const Comments = ({ reviewId }) => {
       setCommentsList(comments);
     };
     fetchComments();
-    console.log(commentsList);
   }, [reviewId]);
 
-  
+
   return (
     <ul className="comments-container">
       {commentsList.map((comment) => {
-        return <CommentCard comment={comment}/>;
+        return <CommentCard key={comment.comment_id} comment={comment}/>;
       })}
     </ul>
   );
