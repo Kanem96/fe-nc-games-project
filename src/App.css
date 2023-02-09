@@ -218,7 +218,28 @@ margin-top: 10px;
   color: rgb(152, 226, 251);
 }
 
-.comment {
+.comment-container {
+  align-items: center;
+  text-decoration: none;
+}
+.comments-container-header{
+  border-bottom: 1px solid #bdd4b6;
+  padding-bottom: 6px;
+}
+
+.comment-card {
   color: black;
-  padding: 20px
+  border-bottom: 1px solid #457b9d;
+  width: 80%;
+  list-style-type: none;
+  padding-bottom: 10px;
+  margin-left: 70px;
+}
+
+.comment-author {
+  margin-bottom: 4px;
+}
+
+.comment-body {
+  padding: 10px 0;
 }

@@ -59,8 +59,10 @@ const Review = () => {
       </button>
       <p className="review-body">{review.review_body}</p>
       <div className="comments-container">
-        <p>{review.comment_count} Comments</p>
-        <Comments reviewId={id}/>
+        <p className="comments-container-header">
+          {review.comment_count} Comments
+        </p>
+        <Comments reviewId={id} />
       </div>
     </section>
   );

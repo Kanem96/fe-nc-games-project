@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getComments } from "../api";
+import CommentCard from "./CommentCard";
 
 const Comments = ({ reviewId }) => {
   const [commentsList, setCommentsList] = useState([]);
@@ -13,12 +14,13 @@ const Comments = ({ reviewId }) => {
     console.log(commentsList);
   }, [reviewId]);
 
+  
   return (
-    <>
+    <ul className="comments-container">
       {commentsList.map((comment) => {
-        return <p className="comment">{comment.comment_id}</p>;
+        return <CommentCard comment={comment}/>;
       })}
-</>
+    </ul>
   );
 };
 
