@@ -4,16 +4,15 @@ import deleteButton from "../assets/icons/delete.png";
 import { formatDateAndTime } from "../utils";
 import { deleteCommentByCommentId } from "../api";
 
-const CommentCard = ({ comment, setCommentList}) => {
-  const [isDeleting, setIsDeleting] = useState(false);
+const CommentCard = ({ comment, setCommentCount }) => {
 
-  const handleClick = () => {
-    setIsDeleting(true);
+  const handleClick = (event) => {
+    event.preventDefault()
+    setCommentCount((currentCount) => --currentCount);
     const deleteComment = async () => {
       await deleteCommentByCommentId(comment.comment_id);
-      setIsDeleting(false)
     };
-    deleteComment()
+    deleteComment();
   };
 
   return (
@@ -25,9 +24,9 @@ const CommentCard = ({ comment, setCommentList}) => {
         <img src={likeButton} alt="like button" className="thumb-icon" />
         <p>{comment.votes}</p>
       </button>
-        <button className="delete-comment-btn" onClick={handleClick}>
-          <img src={deleteButton} alt="delete button" />
-        </button>
+      <button className="delete-comment-btn" onClick={handleClick}>
+        <img src={deleteButton} alt="delete button" />
+      </button>
     </li>
   );
 };
