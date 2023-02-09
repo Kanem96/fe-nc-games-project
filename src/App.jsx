@@ -13,6 +13,7 @@ function App() {
         <Header />
         <Nav />
         <Routes>
+          <Route path="/"></Route>
           <Route path="/reviews" element={<Reviews />}></Route>
           <Route path="/reviews/:id" element={<Review />}></Route>
         </Routes>
