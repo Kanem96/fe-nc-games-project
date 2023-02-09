@@ -272,4 +272,10 @@ body {
 
 .delete-comment-btn img {
   width: 27px;
+  transition: ease 0.2s;
+}
+
+.delete-comment-btn img:hover {
+  filter: invert(20%) sepia(95%) saturate(2695%) hue-rotate(342deg) brightness(89%) contrast(81%);
+  width: 29px;
 }
