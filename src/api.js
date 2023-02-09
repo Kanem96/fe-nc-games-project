@@ -8,10 +8,10 @@ export const getReviews = async (query) => {
   let path = "/reviews";
   if (query.category && query.filterName) {
     path += `?category=${query.category}&sort_by=${query.filterName}&order=${query.filterOrder}`;
-  } else if (query.category){
+  } else if (query.category) {
     path += `?category=${query.category}`;
   } else if (query.filterName) {
-      path += `?sort_by=${query.filterName}&order=${query.filterOrder}`;
+    path += `?sort_by=${query.filterName}&order=${query.filterOrder}`;
   }
   const { data } = await gamesAPI.get(path);
   return data.reviews;
@@ -30,11 +30,16 @@ export const getCategories = async () => {
 };
 
 export const getComments = async (reviewId) => {
-  const {data} = await gamesAPI.get(`reviews/${reviewId}/comments`)
+  const { data } = await gamesAPI.get(`reviews/${reviewId}/comments`);
 
   return data.comments;
-}
+};
 export const patchNewVote = async (reviewId, newVote) => {
   gamesAPI.patch(`/reviews/${reviewId}`, newVote);
 };
 
+export const deleteCommentByCommentId = async (commentId) => {
+  gamesAPI
+    .delete(`/comments/${commentId}`)
+    .catch((error) => console.log(error));
+};

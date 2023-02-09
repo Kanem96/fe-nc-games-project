@@ -13,11 +13,16 @@ const Comments = ({ reviewId }) => {
     fetchComments();
   }, [reviewId]);
 
-
   return (
     <ul className="comments-container">
       {commentsList.map((comment) => {
-        return <CommentCard key={comment.comment_id} comment={comment}/>;
+        return (
+          <CommentCard
+            key={comment.comment_id}
+            comment={comment}
+            setCommentsList={setCommentsList}
+          />
+        );
       })}
     </ul>
   );

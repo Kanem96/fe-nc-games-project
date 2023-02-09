@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import likeButton from "../assets/icons/like.png";
 import deleteButton from "../assets/icons/delete.png";
 import { formatDateAndTime } from "../utils";
+import { deleteCommentByCommentId } from "../api";
 
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, setCommentList}) => {
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleClick = () => {
+    setIsDeleting(true);
+    const deleteComment = async () => {
+      await deleteCommentByCommentId(comment.comment_id);
+      setIsDeleting(false)
+    };
+    deleteComment()
+  };
+
   return (
     <li className="comment-card">
       <h4 className="comment-author">{comment.author}</h4>
@@ -13,9 +25,9 @@ const CommentCard = ({ comment }) => {
         <img src={likeButton} alt="like button" className="thumb-icon" />
         <p>{comment.votes}</p>
       </button>
-      <button className="delete-comment-btn">
-        <img src={deleteButton} alt="delete button" />
-      </button>
+        <button className="delete-comment-btn" onClick={handleClick}>
+          <img src={deleteButton} alt="delete button" />
+        </button>
     </li>
   );
 };
