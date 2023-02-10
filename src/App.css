@@ -276,6 +276,31 @@ body {
 }
 
 .delete-comment-btn img:hover {
-  filter: invert(20%) sepia(95%) saturate(2695%) hue-rotate(342deg) brightness(89%) contrast(81%);
+  filter: invert(20%) sepia(95%) saturate(2695%) hue-rotate(342deg)
+    brightness(89%) contrast(81%);
   width: 29px;
+}
+
+.form-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.comment-text-box {
+  width: 600px;;
+  margin-left: 30px;
+}
+
+.submit-container {
+position: absolute;
+left: 30px;
+top: 20px;
+}
+
+.username-label {
+  font-size: 1rem;
+}
+
+.username-text-box {
+  margin-right: 10px;
 }
