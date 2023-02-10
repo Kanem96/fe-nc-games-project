@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getComments } from "../api";
 import CommentCard from "./CommentCard";
+import NewCommentForm from "./NewCommentForm";
 
 const Comments = ({ reviewId, commentsList, setCommentsList }) => {
   const [commentCount, setCommentCount] = useState(0);
+
   useEffect(() => {
     const fetchComments = async () => {
       const comments = await getComments(reviewId);
@@ -16,6 +18,7 @@ const Comments = ({ reviewId, commentsList, setCommentsList }) => {
   return (
     <>
       <p className="comments-container-header">{commentCount} Comments</p>
+      <NewCommentForm reviewId={reviewId} setCommentCount={setCommentCount} />
       <ul className="comments-container">
         {commentsList.map((comment) => {
           return (
