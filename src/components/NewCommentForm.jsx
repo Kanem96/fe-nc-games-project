@@ -13,10 +13,14 @@ const NewCommentForm = ({ reviewId, setCommentCount }) => {
     console.log(newComment);
     const postNewComment = async () => {
       await postComment(reviewId, newComment);
-      setCommentCount(currentCount => currentCount + 1);
+      setCommentCount((currentCount) => currentCount + 1);
     };
     postNewComment();
     setIsFocused(false);
+    setNewComment({
+      username: "",
+      body: "",
+    });
   };
 
   const handleChange = (event) => {
@@ -29,7 +33,7 @@ const NewCommentForm = ({ reviewId, setCommentCount }) => {
         type="text"
         className="comment-text-box"
         name="body"
-        defaultValue={newComment.body}
+        value={newComment.body}
         onFocus={() => setIsFocused(true)}
         onChange={handleChange}
         placeholder="What do you think ?"
@@ -46,7 +50,7 @@ const NewCommentForm = ({ reviewId, setCommentCount }) => {
             className="username-text-box"
             required
             placeholder="grumpy19"
-            defaultValue={newComment.username}
+            value={newComment.username}
             onChange={handleChange}
           ></input>
           <button className="submit-btn">Post</button>
