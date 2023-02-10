@@ -44,6 +44,7 @@ const Review = () => {
     updateVoteCount();
   };
 
+  if (err) return <p>{err}</p>;
   return (
     <section className="review-container">
       <h1 className="review-title">{review.title}</h1>
