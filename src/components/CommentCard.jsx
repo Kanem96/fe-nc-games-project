@@ -5,12 +5,13 @@ import { formatDateAndTime } from "../utils";
 import { deleteCommentByCommentId } from "../api";
 
 const CommentCard = ({ comment, setCommentCount }) => {
-
   const handleClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     setCommentCount((currentCount) => --currentCount);
     const deleteComment = async () => {
-      await deleteCommentByCommentId(comment.comment_id);
+      await deleteCommentByCommentId(comment.comment_id).catch(() => (
+        <p>There was a problem deleting this comment. Please try again</p>
+      ));
     };
     deleteComment();
   };
