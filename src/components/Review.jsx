@@ -4,11 +4,13 @@ import { getReviewById, patchNewVote } from "../api";
 import likeButton from "../assets/icons/like.png";
 import { formatDateAndTime } from "../utils";
 import Comments from "./Comments";
+
 const Review = () => {
   const [review, setReview] = useState({});
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
+  const [commentsList, setCommentsList] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [err, setErr] = useState(null);
 
@@ -20,7 +22,7 @@ const Review = () => {
     };
     fetchReviewById();
     setIsLoading(false);
-  }, [id]);
+  }, [id, commentsList]);
 
   if (isLoading) return <p>Is Loading...</p>;
 
@@ -59,10 +61,11 @@ const Review = () => {
       </button>
       <p className="review-body">{review.review_body}</p>
       <div className="comments-container">
-        <p className="comments-container-header">
-          {review.comment_count} Comments
-        </p>
-        <Comments reviewId={id} />
+        <Comments
+          reviewId={id}
+          setCommentsList={setCommentsList}
+          commentsList={commentsList}
+        />
       </div>
     </section>
   );
