@@ -34,6 +34,13 @@ export const getComments = async (reviewId) => {
 
   return data.comments;
 };
+
+export const postComment = async (reviewId, newComment) => {
+  gamesAPI
+    .post(`/reviews/${reviewId}/comments`, newComment)
+    .catch((error) => console.log(error));
+};
+
 export const patchNewVote = async (reviewId, newVote) => {
   gamesAPI.patch(`/reviews/${reviewId}`, newVote);
 };
